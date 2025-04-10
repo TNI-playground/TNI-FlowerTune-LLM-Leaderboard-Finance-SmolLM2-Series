@@ -31,7 +31,7 @@ serverapp = "t_ioi_finance_smollm2.server_app:app"
 clientapp = "t_ioi_finance_smollm2.client_app:app"
 
 [tool.flwr.app.config]
-model.name = "HuggingFaceTB/SmolLM2-360M"
+model.name = "HuggingFaceTB/SmolLM2-360M-Instruct"
 model.quantization = 4
 model.gradient-checkpointing = true
 model.lora.peft-lora-r = 8

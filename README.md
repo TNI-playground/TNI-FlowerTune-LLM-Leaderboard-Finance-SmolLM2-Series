@@ -1,10 +1,9 @@
 # FlowerTune LLM on Finance Dataset
 
-This directory conducts federated instruction tuning with a pretrained [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.3) model on a [Finance dataset](https://huggingface.co/datasets/FinGPT/fingpt-sentiment-train).
+This directory conducts federated instruction tuning with pretrained SmolLM2 Series Models: [SmolLM2-135M-Instruct](https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct), [SmolLM2-360M-Instruct](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct), [SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) and [SmolLM2-360M](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct) on a [Finance dataset](https://huggingface.co/datasets/FinGPT/fingpt-sentiment-train).
 We use [Flower Datasets](https://flower.dev/docs/datasets/) to download, partition and preprocess the dataset.
 Flower's Simulation Engine is used to simulate the LLM fine-tuning process in federated way,
 which allows users to perform the training on a single GPU.
-
 
 ## Methodology
 
@@ -24,7 +23,7 @@ pip install -e .
 ## Experimental setup
 
 The dataset is divided into 50 partitions in an IID fashion, a partition is assigned to each ClientApp.
-We randomly sample a fraction (0.1) of the total nodes to participate in each round, for a total of `200` rounds.
+We randomly sample a fraction (0.1) of the total nodes to participate in each round, for a total of `50` rounds.
 All settings are defined in `pyproject.toml`.
 
 > [!IMPORTANT]
@@ -33,7 +32,6 @@ All settings are defined in `pyproject.toml`.
 
 ## Running the challenge
 
-First make sure that you have got the access to [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.3) model with your Hugging-Face account. You can request access directly from the Hugging-Face website.
 Then, follow the instruction [here](https://huggingface.co/docs/huggingface_hub/en/quick-start#login-command) to log in your account. Note you only need to complete this stage once in your development machine:
 
 ```bash
@@ -53,8 +51,8 @@ We use models with 4-bit quantization as default. The estimated VRAM consumption
 
 |Models|SmolLM2-135M-Instruct (BS=16)|SmolLM2-360M-Instruct (BS=8) |SmolLM2-135M (BS=16)|SmolLM2-360M (BS=8) |
 | :----: | :--------:                | :--------:                  | :--------:         | :--------:         |
-|VRAM    |      6.96 GB              |               GB            |  6.19 GB           |        GB          |
-|Comm    |      886.23 MB            |        1570.31 MB           |  886.23 MB         |        MB          |
+|VRAM    |      6.96 GB              |         4.01  GB            |  6.19 GB           |  4.14  GB          |
+|Comm    |      886.23 MB            |        1570.31 MB           |  886.23 MB         | 1570.31 MB         |
    
 You can adjust the CPU/GPU resources you assign to each of the clients based on your device, which are specified with `options.backend.client-resources.num-cpus` and `options.backend.client-resources.num-gpus` under `[tool.flwr.federations.local-simulation]` entry in `pyproject.toml`.
 

@@ -25,16 +25,12 @@ huggingface-cli login
 > [!NOTE]
 > Please ensure that you use `quantization=4` to run the evaluation if you wish to participate in the LLM Leaderboard.
 
-```bash
-python eval.py \
---base-model-name-path=your-base-model-name \ # e.g., mistralai/Mistral-7B-v0.3
---peft-path=/path/to/fine-tuned-peft-model-dir/ \ # e.g., ./peft_1
---run-name=fl  \ # specified name for this run  
---batch-size=32 \
---quantization=4 \
---datasets=fpb,fiqa,tfns
-```
+Download fine-tuned model from [Google Drive](https://drive.google.com/drive/folders/1BCUcVeRJiIr-xYFfNwe-pma8USO7Sqq2?usp=sharing), put everything under `results` directory
 
+```bash
+cd /your_project_path/NI-FlowerTune-LLM-Leaderboard-Finance-SmolLM2-Series
+bash script.sh
+```
 
 ### Benchmark
 
