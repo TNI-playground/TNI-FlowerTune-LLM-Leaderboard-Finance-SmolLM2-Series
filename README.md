@@ -45,6 +45,15 @@ The configs are defined in `[tool.flwr.app.config]` entry of `pyproject.toml`, a
 flwr run
 ```
 
+### Benchmark
+
+| Challenges                      | FPB        |   FIQA     |  TFNS       |   Avg      |
+| :--------:                      | :--------: | :--------: | :--------:  | :--------: |
+|[SmolLM2-135M-Instruct](https://drive.google.com/drive/folders/1b4l2kHrCOiY6SEe8QF-tJuYtVMJROoqw?usp=drive_link) (50Rounds) | 28.63      |   59.21    |  21.60      |   36.48    |
+|[SmolLM2-135M](https://drive.google.com/drive/folders/1dTqx4VYsV5k3EhVS2sDN19xA6_7nOGaW?usp=drive_link) (50Rounds)          | 29.86      |   59.53    |  21.06      |   36.81    |
+|[SmolLM2-360M-Instruct](https://drive.google.com/drive/folders/1vIXx9Do81jYPw3LBfU3mypNndQImoMwk?usp=drive_link) (50Rounds) | 52.64      |   66.11    |  37.93      |   52.22    |
+|[SmolLM2-360M](https://drive.google.com/drive/folders/10zOv5IHuWI5B9FvoFTYHL7BFXNoMvX2H?usp=drive_link) (50Rounds)          | 53.79      |   21.71    |  52.42      |   42.64    |
+
 ## VRAM consumption
 
 We use models with 4-bit quantization as default. The estimated VRAM consumption per client for each challenge is shown below:
