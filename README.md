@@ -47,6 +47,8 @@ flwr run
 
 ### Benchmark
 
+All the experiments are conducted on a NVIDIA GeForce GTX 1080 (8 GB).
+
 | Challenges                      | FPB        |   FIQA     |  TFNS       |   Avg      |
 | :--------:                      | :--------: | :--------: | :--------:  | :--------: |
 |[SmolLM2-135M-Instruct](https://drive.google.com/drive/folders/1b4l2kHrCOiY6SEe8QF-tJuYtVMJROoqw?usp=drive_link) (50Rounds) | 28.63      |   59.21    |  21.60      |   36.48    |
